@@ -1,7 +1,5 @@
-    let admin;
-    let name;
+let name = "Ivan";
 
-    name = 'Іван';
-    admin = name;
+alert( `hello ${"name"}`);
 
-    alert(admin);
+alert( `hello ${name}`);
