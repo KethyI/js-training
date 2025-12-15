@@ -1,5 +1,3 @@
-let name = "Ivan";
+let name = prompt("What's your name?", "a secret");
 
-alert( `hello ${"name"}`);
-
-alert( `hello ${name}`);
+alert(`Your name is ${name}`);
