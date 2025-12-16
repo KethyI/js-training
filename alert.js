@@ -1,3 +1,7 @@
-let name = prompt("What's your name?", "a secret");
-
-alert(`Your name is ${name}`);
+5 > 4 // true
+"ананас" > "яблуко" // false
+"2" > "12" // true
+undefined == null // true
+undefined === null //false
+null == "\n0\n" //false
+null === +"\n0\n" //false
