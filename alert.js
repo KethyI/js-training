@@ -1,44 +1,48 @@
-function a(){
-    let question = prompt("Write any number", 0);
-    if(question > 0){
-        alert("1");
-    }
-    else if (question < 0 ) {
-        alert("-1");
+// alert( alert(1) || 2 || alert(3) );
 
-    }
-    else {
-             alert("0");   
-    }
+// alert( alert(1) && alert(2) );
+
+let age = prompt("What's your age?", "");
+
+//task 2
+if (age >= 14 && age <= 90) {
+  alert("you are fine")
 }
 
-a();
+// task3
+if (age > 90 || age < 14) {
+  alert ("you are too much")
+}
 
-//task2
-let result = (a + b < 4) ?  'Нижче' : 'Вище';
+// task3.5
+if (!(age >= 14 && age <= 90)) {
+  alert ("you are too much")
+}
 
-//task3
-let message = (login == 'Працівник') ? 'Привіт':
- (login == 'Директор') ? 'Вітаю':
- (login == '') ? 'Немає логіну' :
-  '';
+//tast 4
+if (-1 || 0) alert( 'перший' ); //-1
+if (-1 && 0) alert( 'другий' ); //not shown
+if (null || -1 && 1) alert( 'третій' ); //1
 
-  //task4
-  let value = prompt('Яка "офіційна" назва JavaScript?', '');
+//task 5
+let login = prompt("what's your login?", "");
 
-    if (value == 'ECMAScript') {
-      alert('Правильно!');
-    } else {
-      alert('Ви не знаєте? ECMAScript!');
-    }
+if (login == "Admin") {
+let password = prompt("What's your password?", "");
+if (password == "Owner") {
+  alert("Welcome!");
+  
+}
+else if (password == "" || password == null) {
+  alert("Canceled");
+}
+else {
+   alert("Wrong") 
+  }
+}
+else if (login == "" || login == null) {
+  alert("Canceled");
 
-    // task5
-    let value = prompt('Введіть число', 0);
-
-if (value > 0) {
-  alert( 1 );
-} else if (value < 0) {
-  alert( -1 );
 } else {
-  alert( 0 );
+  alert("We don't know you");
 }
