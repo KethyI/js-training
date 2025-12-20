@@ -1,48 +1,61 @@
-// alert( alert(1) || 2 || alert(3) );
+// // task1
+// // let i = 0;
+// // while (++i < 5) alert( i );
+// // //1, 2, 3, 4
 
-// alert( alert(1) && alert(2) );
+// // let i = 0;
+// // while (i++ < 5) alert( i );
+// // //0, 1, 2, 3, 4, 5
 
-let age = prompt("What's your age?", "");
+// // //task2
+// // for (let i = 0; i < 5; i++) alert( i );
+// // //0, 1, 2, 3, 4
 
-//task 2
-if (age >= 14 && age <= 90) {
-  alert("you are fine")
-}
+// // for (let i = 0; i < 5; ++i) alert( i );
+// //0, 1, 2, 3, 4
 
-// task3
-if (age > 90 || age < 14) {
-  alert ("you are too much")
-}
+// //task3
+// for(let i=2; i <= 10; i++) 
+//   {
+//     if (i % 2 == 0) {
+//       alert(i);
+//     }
+//   }
 
-// task3.5
-if (!(age >= 14 && age <= 90)) {
-  alert ("you are too much")
-}
+//   //task4
+//   let i = 0;
+//   while (i < 3) {
+//   alert( `число ${i}!` );
+//   i++;
+// }
 
-//tast 4
-if (-1 || 0) alert( 'перший' ); //-1
-if (-1 && 0) alert( 'другий' ); //not shown
-if (null || -1 && 1) alert( 'третій' ); //1
+// //task5
+// let num;
+// do {
+//   num = prompt("Type number over 100", "");
+// } while (num <= 100 && num);
 
-//task 5
-let login = prompt("what's your login?", "");
-
-if (login == "Admin") {
-let password = prompt("What's your password?", "");
-if (password == "Owner") {
-  alert("Welcome!");
-  
-}
-else if (password == "" || password == null) {
-  alert("Canceled");
-}
-else {
-   alert("Wrong") 
+//task6
+let n = 10;
+  for (let i = 2; i<=n; i++) {
+    let isPrime = true;
+    for (let j=2; j<i; j++) {
+      if (i%j==0) {isPrime = false; break;}
+    } 
+    if (isPrime) alert (i);
   }
-}
-else if (login == "" || login == null) {
-  alert("Canceled");
 
-} else {
-  alert("We don't know you");
-}
+
+
+
+//   let n = 10;
+
+// nextPrime:
+// for (let i = 2; i <= n; i++) { // 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+//   for (let j = 2; j < i; j++) { // шукаємо дільник..
+//     if (i % j == 0) continue nextPrime; // не просте, беремо наступне i
+//   }
+
+//   alert( i ); // 2, 3, 5,
+// }
