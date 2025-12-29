@@ -1,19 +1,53 @@
-// task 1.1
-function pow(x, n) {
-  let result = 1;
+// task 1
+let user = {};
 
-  for(let i = 0; i < n; i++) {
-    result*=x;
+user.name = "Ivan";
+user.surname = "Smith";
+user.name = "Peter";
+
+delete user.name;
+
+// task2
+function isEmpty(obj) {
+  for (let key in obj) return false;
+
+  return true;
+}
+
+//task3
+  let salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
+  };
+
+function salariesSum(){
+  let sum = 0;
+  for ( let key in salaries) {
+    sum += salaries[key];
   }
-
-   return result;
+  return sum;
 }
 
-let x = prompt("x?", '');
-let n = prompt("n?", '');
+ salariesSum(salaries);
 
-if (n<=0) {
-  alert(`Power ${n} is not supported, please enter an integer number greater than zero`);
-} else {
-  alert( pow(x, n) );
+// task4
+function multiplyNumeric(obj){
+  for (let key in obj) {
+    if (typeof obj[key]  == "number") {
+      obj[key] *= 2;
+      console.log(typeof obj[key]);
+
+    }
+  }
 }
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "Моє меню"
+};
+console.log(menu);
+multiplyNumeric(menu);
+
+console.log(menu);
