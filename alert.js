@@ -1,53 +1,34 @@
 // task 1
-let user = {};
+let calculator = {
+  read() {
+    this.a = +prompt("Give first number", 0);
+    this.b = +prompt("Give second number", 0);
+  },
 
-user.name = "Ivan";
-user.surname = "Smith";
-user.name = "Peter";
+  sum() {
+    return this.a + this.b;
+  },
 
-delete user.name;
-
-// task2
-function isEmpty(obj) {
-  for (let key in obj) return false;
-
-  return true;
-}
-
-//task3
-  let salaries = {
-    John: 100,
-    Ann: 160,
-    Pete: 130
-  };
-
-function salariesSum(){
-  let sum = 0;
-  for ( let key in salaries) {
-    sum += salaries[key];
+  mul() {
+    return this.a * this.b;
   }
-  return sum;
-}
-
- salariesSum(salaries);
-
-// task4
-function multiplyNumeric(obj){
-  for (let key in obj) {
-    if (typeof obj[key]  === "number") {
-      obj[key] *= 2;
-      console.log(typeof obj[key]);
-
-    }
-  }
-}
-
-let menu = {
-  width: 200,
-  height: 300,
-  title: "Моє меню"
 };
-console.log(menu);
-multiplyNumeric(menu);
 
-console.log(menu);
+// task 2
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function() { // показує поточний крок
+    alert( this.step );
+    return this;
+  }
+};
+
+
