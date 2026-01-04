@@ -1,34 +1,31 @@
-// task 1
+// task1
+let num1 = +prompt("Give first number", 0);
+let num2 = +prompt("Give second number", 0);
 
+sum = num1 + num2;
 
-function Calculator () {
-  this.read = function() {
-    this.a = +prompt("Give first number", 0);
-    this.b = +prompt("Give second number", 0);
-  };
+alert(sum);
 
-  this.sum - function() {
-    return this.a + this.b;
-  };
+// task2
+function readNumber() {
+  let num;
 
-  this.mul = function() {
-    return this.a * this.b;
+  do { 
+    num = +prompt("Give number", "");
+  } while (!isFinite(num));
+
+  if (num === null || num === "") {
+    return null;
   }
-};
 
-let calculator = new Calculator();
+  return num;
+  
+}
 
-// task 2
-function Accumulator(startingValue){
-  this.value = startingValue;
+alert(`${readNumber()}`);
 
-  this.read = function () {
-    this.value += +prompt("What to add?", 0);
-    return this.value;
-  }
-};
-
-let accumulator = new Accumulator(1);
-accumulator.read();
-accumulator.read();
-alert(accumulator.value);
+//task3
+function random(min, max) {
+  let numRandom = Math.random()*(max - min) + min;
+  return numRandom;
+}
