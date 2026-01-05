@@ -1,31 +1,41 @@
 // task1
-let num1 = +prompt("Give first number", 0);
-let num2 = +prompt("Give second number", 0);
+function ucFirst(str) {
+  if (str === "") return str;
 
-sum = num1 + num2;
+  let copyStr = str.at(0).toLowerCase() + str.slice(1);
 
-alert(sum);
-
-// task2
-function readNumber() {
-  let num;
-
-  do { 
-    num = +prompt("Give number", "");
-  } while (!isFinite(num));
-
-  if (num === null || num === "") {
-    return null;
-  }
-
-  return num;
-  
+  return copyStr;
 }
 
-alert(`${readNumber()}`);
+alert( ucFirst("василь") ); 
 
-//task3
-function random(min, max) {
-  let numRandom = Math.random()*(max - min) + min;
-  return numRandom;
+// task2
+function checkSpam(str) {
+  let strLower = str.toLowerCase();
+ 
+  return strLower.includes("viagra") || strLower.includes("xxx");
+}
+
+// task3
+function truncate(str, maxlength) {
+  let srtLength = str.length; 
+
+  if (srtLength > maxlength) {
+    return str.slice(0, maxlength - 1) + "...";
+  }
+
+  return str;
+}
+
+// task4
+function extractCurrencyValue(str) {
+  let result = "";
+  for (let char of str) {
+   
+    if (!isNaN(+char)) {
+      result += char;
+    }
+   
+  }
+  return +result;
 }
