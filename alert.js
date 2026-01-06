@@ -1,41 +1,47 @@
 // task1
-function ucFirst(str) {
-  if (str === "") return str;
+let styles = ["Jazz", "Blues"];
 
-  let copyStr = str.at(0).toLowerCase() + str.slice(1);
+styles.push("Rock-n-Roll");
 
-  return copyStr;
-}
+styles[Math.floor(styles.length - 1 / 2)] = "Classics";
 
-alert( ucFirst("василь") ); 
+alert( styles.shift());
+
+styles.unshift("Rap, Reggae");
 
 // task2
-function checkSpam(str) {
-  let strLower = str.toLowerCase();
- 
-  return strLower.includes("viagra") || strLower.includes("xxx");
+function sumInput() {
+  let nums = [];
+  let result = 0;
+
+  while (true) {  
+    let number = prompt("give number", "");
+    if (number === "" || number === null || !isFinite(+number)) break;
+    nums.push (+number);
+  }  
+
+  for (let n of nums) {
+    result += n;
+  }
+  
+  return result;
+
 }
+
 
 // task3
-function truncate(str, maxlength) {
-  let srtLength = str.length; 
+function getMaxSubSum(arr) {
 
-  if (srtLength > maxlength) {
-    return str.slice(0, maxlength - 1) + "...";
+  let partArr = 0;
+  let maxSum = 0;
+
+  for (let num of arr) {
+
+    partArr = Math.max(0, partArr + num);
+
+    maxSum = Math.max(maxSum, partArr);
+
   }
 
-  return str;
-}
-
-// task4
-function extractCurrencyValue(str) {
-  let result = "";
-  for (let char of str) {
-   
-    if (!isNaN(+char)) {
-      result += char;
-    }
-   
-  }
-  return +result;
+  return maxSum;
 }
