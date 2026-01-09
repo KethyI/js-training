@@ -1,47 +1,29 @@
 // task1
-let styles = ["Jazz", "Blues"];
+function camelize(str) {
+  let arr = str.split("-");
+  let newStr = arr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)).join("");
 
-styles.push("Rock-n-Roll");
-
-styles[Math.floor(styles.length - 1 / 2)] = "Classics";
-
-alert( styles.shift());
-
-styles.unshift("Rap, Reggae");
-
-// task2
-function sumInput() {
-  let nums = [];
-  let result = 0;
-
-  while (true) {  
-    let number = prompt("give number", "");
-    if (number === "" || number === null || !isFinite(+number)) break;
-    nums.push (+number);
-  }  
-
-  for (let n of nums) {
-    result += n;
-  }
+  return newStr;
   
-  return result;
-
 }
 
+//task2
+function filterRange(arr, a, b) {
+  let filterArr = arr.filter(item => item >= a && item <= b);
+  return filterArr;
+}
 
-// task3
-function getMaxSubSum(arr) {
-
-  let partArr = 0;
-  let maxSum = 0;
-
-  for (let num of arr) {
-
-    partArr = Math.max(0, partArr + num);
-
-    maxSum = Math.max(maxSum, partArr);
-
+//task3
+function filterRangeInPlace(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    if (a > arr[i] || arr[i] > b)  {
+          arr.splice(i, 1);
+          i--;
+      }
   }
-
-  return maxSum;
 }
+
+let arr = [5, 3, 8, 1];
+filterRangeInPlace(arr, 1, 4); // видаляє всі числа крім тих, що в діапазоні від 1 до 4
+
+alert( arr );
