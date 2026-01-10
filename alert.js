@@ -24,6 +24,37 @@ function filterRangeInPlace(arr, a, b) {
 }
 
 let arr = [5, 3, 8, 1];
-filterRangeInPlace(arr, 1, 4); // видаляє всі числа крім тих, що в діапазоні від 1 до 4
+filterRangeInPlace(arr, 1, 4); 
 
 alert( arr );
+
+//task4
+let arr = [5, 2, 1, -10, 8];
+
+arr.sort((a, b) => b - a)
+
+alert( arr ); 
+
+//task5
+function copySorted(arr) {
+  let sortedArr = arr.slice().sort();
+  return sortedArr
+}
+
+let arr = ["HTML", "JavaScript", "CSS"];
+
+let sorted = copySorted(arr);
+
+alert( sorted );
+alert( arr );
+
+//task6
+function Calculator(str){
+  
+  let arr = str.split(" ");
+  let result = "";
+
+  arr.find("+") ? result = arr[0] + arr[1] : result =  arr[0] - arr[1];
+
+  return result;
+}
