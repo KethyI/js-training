@@ -1,60 +1,111 @@
-// task1
-function camelize(str) {
-  let arr = str.split("-");
-  let newStr = arr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)).join("");
+// // task1
+// function camelize(str) {
+//   let arr = str.split("-");
+//   let newStr = arr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)).join("");
 
-  return newStr;
+//   return newStr;
   
-}
+// }
 
-//task2
-function filterRange(arr, a, b) {
-  let filterArr = arr.filter(item => item >= a && item <= b);
-  return filterArr;
-}
+// //task2
+// function filterRange(arr, a, b) {
+//   let filterArr = arr.filter(item => item >= a && item <= b);
+//   return filterArr;
+// }
 
-//task3
-function filterRangeInPlace(arr, a, b) {
-  for (let i = 0; i < arr.length; i++) {
-    if (a > arr[i] || arr[i] > b)  {
-          arr.splice(i, 1);
-          i--;
-      }
-  }
-}
+// //task3
+// function filterRangeInPlace(arr, a, b) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (a > arr[i] || arr[i] > b)  {
+//           arr.splice(i, 1);
+//           i--;
+//       }
+//   }
+// }
 
-let arr = [5, 3, 8, 1];
-filterRangeInPlace(arr, 1, 4); 
+// let arr = [5, 3, 8, 1];
+// filterRangeInPlace(arr, 1, 4); 
 
-alert( arr );
+// alert( arr );
 
-//task4
-let arr = [5, 2, 1, -10, 8];
+// //task4
+// let arr = [5, 2, 1, -10, 8];
 
-arr.sort((a, b) => b - a)
+// arr.sort((a, b) => b - a)
 
-alert( arr ); 
+// alert( arr ); 
 
-//task5
-function copySorted(arr) {
-  let sortedArr = arr.slice().sort();
-  return sortedArr
-}
+// //task5
+// function copySorted(arr) {
+//   let sortedArr = arr.slice().sort();
+//   return sortedArr
+// }
 
-let arr = ["HTML", "JavaScript", "CSS"];
+// let arr = ["HTML", "JavaScript", "CSS"];
 
-let sorted = copySorted(arr);
+// let sorted = copySorted(arr);
 
-alert( sorted );
-alert( arr );
+// alert( sorted );
+// alert( arr );
 
-//task6
-function Calculator(str){
+// //task6
+// function Calculator(){
+
+//   this.methods = {
+//     "+": (a, b) => a + b,
+//     "-": (a, b) => a - b,
+//   }
   
-  let arr = str.split(" ");
-  let result = "";
+//   this.calculate = function(str){
+//     let arr = str.split(" ");
+//     let result;
+//     let a = +arr[0];
+//     let operator = arr[1];
+//     let b = +arr[2];
 
-  arr.find("+") ? result = arr[0] + arr[1] : result =  arr[0] - arr[1];
+//     if (isNaN(a) || isNaN(b) || !this.methods[operator]) return alert (" Format is `a + b`");
+//     result = this.methods[operator](a, b);
+//     return result;
+//   } 
 
-  return result;
-}
+//   this.addMethod = function(name, func) {
+//     this.methods[name] = func;
+//   }
+  
+// }
+
+// // task7
+// let ivan = { name: "Іван", age: 25 };
+// let petro = { name: "Петро", age: 30 };
+// let mariya = { name: "Марія", age: 28 };
+
+// let users = [ ivan, petro, mariya ];
+
+// let names = users.map(user => user.name);
+
+// alert( names ); // Іван, Петро, Марія
+
+// task8
+let ivan = { name: "Іван", surname: "Іванко", id: 1 };
+let petro = { name: "Петро", surname: "Петренко", id: 2 };
+let mariya = { name: "Марія", surname: "Мрійко", id: 3 };
+
+let users = [ ivan, petro, mariya ];
+
+let usersMapped = users.map(user => ({
+  fullName: `${user.name} ${user.surname}`, 
+  id: user.id,
+}));
+
+
+// usersMapped = [
+//   { fullName: "Іван Іванко", id: 1 },
+//   { fullName: "Петро Петренко", id: 2 },
+//   { fullName: "Марія Мрійко", id: 3 }
+// ]
+
+
+alert( usersMapped[0].id ) // 1
+alert( usersMapped[0].fullName ) // Іван Іванко
+
+// task9
