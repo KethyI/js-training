@@ -109,3 +109,23 @@ alert( usersMapped[0].id ) // 1
 alert( usersMapped[0].fullName ) // Іван Іванко
 
 // task9
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+
+// task10
+function sortByAge(users) {
+  users.sort( function (a, b) {
+    if (a.age > b.age) return 1;
+    if (a.age < b.age) return -1;
+    return 0;
+  } )
+}
+
+let ivan = { name: "Іван", age: 25 };
+let petro = { name: "Петро", age: 30 };
+let mariya = { name: "Марія", age: 28 };
+
+let arr = [ petro, ivan, mariya ];
+
+sortByAge(arr);
