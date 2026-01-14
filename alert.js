@@ -129,3 +129,38 @@ let mariya = { name: "Марія", age: 28 };
 let arr = [ petro, ivan, mariya ];
 
 sortByAge(arr);
+
+// task11
+function getAverageAge(users) {
+  let sumAge = users.reduce((sum, current) => sum + current, 0 );
+  return sumAge / users.length;
+
+}
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 29 };
+
+let arr = [ john, pete, mary ];
+
+alert( getAverageAge(arr) );
+
+// task12
+function unique(arr) {
+  let uniqueWords = [];
+
+  for (let word of arr) {
+      if (!uniqueWords.includes(word)) {
+        uniqueWords.push(word);
+      }
+
+    }
+    
+  return uniqueWords;
+}
+
+let strings = ["Привіт", "Світ", "Привіт", "Світ",
+  "Привіт", "Привіт", "Світ", "Світ", ":-O"
+];
+
+alert( unique(strings) );
