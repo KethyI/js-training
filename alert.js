@@ -86,81 +86,91 @@
 // alert( names ); // Іван, Петро, Марія
 
 // task8
-let ivan = { name: "Іван", surname: "Іванко", id: 1 };
-let petro = { name: "Петро", surname: "Петренко", id: 2 };
-let mariya = { name: "Марія", surname: "Мрійко", id: 3 };
+// let ivan = { name: "Іван", surname: "Іванко", id: 1 };
+// let petro = { name: "Петро", surname: "Петренко", id: 2 };
+// let mariya = { name: "Марія", surname: "Мрійко", id: 3 };
 
-let users = [ ivan, petro, mariya ];
+// let users = [ ivan, petro, mariya ];
 
-let usersMapped = users.map(user => ({
-  fullName: `${user.name} ${user.surname}`, 
-  id: user.id,
-}));
-
-
-// usersMapped = [
-//   { fullName: "Іван Іванко", id: 1 },
-//   { fullName: "Петро Петренко", id: 2 },
-//   { fullName: "Марія Мрійко", id: 3 }
-// ]
+// let usersMapped = users.map(user => ({
+//   fullName: `${user.name} ${user.surname}`, 
+//   id: user.id,
+// }));
 
 
-alert( usersMapped[0].id ) // 1
-alert( usersMapped[0].fullName ) // Іван Іванко
+// // usersMapped = [
+// //   { fullName: "Іван Іванко", id: 1 },
+// //   { fullName: "Петро Петренко", id: 2 },
+// //   { fullName: "Марія Мрійко", id: 3 }
+// // ]
 
-// task9
-function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
-}
 
-// task10
-function sortByAge(users) {
-  users.sort( function (a, b) {
-    if (a.age > b.age) return 1;
-    if (a.age < b.age) return -1;
-    return 0;
-  } )
-}
+// alert( usersMapped[0].id ) // 1
+// alert( usersMapped[0].fullName ) // Іван Іванко
 
-let ivan = { name: "Іван", age: 25 };
-let petro = { name: "Петро", age: 30 };
-let mariya = { name: "Марія", age: 28 };
+// // task9
+// function shuffle(array) {
+//   array.sort(() => Math.random() - 0.5);
+// }
 
-let arr = [ petro, ivan, mariya ];
+// // task10
+// function sortByAge(users) {
+//   users.sort( function (a, b) {
+//     if (a.age > b.age) return 1;
+//     if (a.age < b.age) return -1;
+//     return 0;
+//   } )
+// }
 
-sortByAge(arr);
+// let ivan = { name: "Іван", age: 25 };
+// let petro = { name: "Петро", age: 30 };
+// let mariya = { name: "Марія", age: 28 };
 
-// task11
-function getAverageAge(users) {
-  let sumAge = users.reduce((sum, current) => sum + current, 0 );
-  return sumAge / users.length;
+// let arr = [ petro, ivan, mariya ];
 
-}
+// sortByAge(arr);
 
-let john = { name: "John", age: 25 };
-let pete = { name: "Pete", age: 30 };
-let mary = { name: "Mary", age: 29 };
+// // task11
+// function getAverageAge(users) {
+//   let sumAge = users.reduce((sum, current) => sum + current, 0 );
+//   return sumAge / users.length;
 
-let arr = [ john, pete, mary ];
+// }
 
-alert( getAverageAge(arr) );
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 29 };
 
-// task12
-function unique(arr) {
-  let uniqueWords = [];
+// let arr = [ john, pete, mary ];
 
-  for (let word of arr) {
-      if (!uniqueWords.includes(word)) {
-        uniqueWords.push(word);
-      }
+// alert( getAverageAge(arr) );
 
-    }
+// // task12
+// function unique(arr) {
+//   let uniqueWords = arr.filter((item, index) => arr.indexOf(item) === index)
     
-  return uniqueWords;
+//   return uniqueWords;
+// }
+
+// let strings = ["Привіт", "Світ", "Привіт", "Світ",
+//   "Привіт", "Привіт", "Світ", "Світ", ":-O"
+// ];
+
+// alert( unique(strings) );
+
+// task13
+function groupById(arr) {
+
+  let obj = arr.reduce((obj, user) => { obj[user.id] = user; return obj; }, {})
+  console.log(obj);
+  return obj;
+  
 }
 
-let strings = ["Привіт", "Світ", "Привіт", "Світ",
-  "Привіт", "Привіт", "Світ", "Світ", ":-O"
+let users = [
+  {id: 'іван', name: "Іван Іванко", age: 20},
+  {id: 'ганна', name: "Ганна Іванко", age: 24},
+  {id: 'петро', name: "Петро Петренко", age: 31},
 ];
 
-alert( unique(strings) );
+let usersById = groupById(users);
