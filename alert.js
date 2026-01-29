@@ -1,32 +1,16 @@
 // task1
-// function unique(arr) {
+let messages = [
+  {text: "Привіт", from: "Іван"},
+  {text: "Як справи?", from: "Іван"},
+  {text: "До зустрічі", from: "Аліса"}
+];
 
-//   return Array.from(new Set(arr));
- 
-// }
+let readMessages = new WeakSet();
+readMessages.add(messages[0]);
+readMessages.add(messages[1]);
 
-// let values = ["Hare", "Krishna", "Hare", "Krishna",
-//   "Krishna", "Krishna", "Hare", "Hare", ":-O"
-// ];
-
-// alert( unique(values) );
+alert (`Message is read: ` + readMessages.has(messages[0]));
 
 // task2
-function aclean(arr) {
-  let noAnagram = new Map ();
-
-  for (let word of arr) {
-    let key = word.toLowerCase().split("").sort().join("");  
-    if (!noAnagram.has(key)) {
-      noAnagram.set(key, word);
-      console.log(noAnagram);
-    }
-  }
-
-  return [...noAnagram.values()];
-}
-
-let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
-
-alert( aclean(arr) ); // "nap,teachers,ear" or "PAN,cheaters,era"
-
+let readMessagesDate = new WeakMap();
+readMessagesDate.set(messages[0], new Date(2026, 1, 1));
