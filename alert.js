@@ -1,16 +1,24 @@
 // task1
-let messages = [
-  {text: "Привіт", from: "Іван"},
-  {text: "Як справи?", from: "Іван"},
-  {text: "До зустрічі", from: "Аліса"}
-];
+function sumSalaries(salaries) {
+  return Object.values(salaries).reduce((sum, salary) => sum + salary, 0);
+}
 
-let readMessages = new WeakSet();
-readMessages.add(messages[0]);
-readMessages.add(messages[1]);
+let salaries = {
+  "Іван": 100,
+  "Петро": 300,
+  "Марія": 250
+};
 
-alert (`Message is read: ` + readMessages.has(messages[0]));
+alert( sumSalaries(salaries) ); 
 
 // task2
-let readMessagesDate = new WeakMap();
-readMessagesDate.set(messages[0], new Date(2026, 1, 1));
+function count(obj) {
+  return Object.keys(obj).length;
+}
+
+let user = {
+  name: 'Іван',
+  age: 30
+};
+
+alert( count(user) );
