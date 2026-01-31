@@ -1,6 +1,27 @@
 // task1
-function sumSalaries(salaries) {
-  return Object.values(salaries).reduce((sum, salary) => sum + salary, 0);
+let user = { name: "Іван", years: 30 };
+
+let {name, years: age, isAdmin = false} = user;
+
+alert( name ); // Іван
+alert( age ); // 30
+alert( isAdmin ); // false
+
+// task2
+function topSalary(salaries) {
+  let arr = Object.entries(salaries);
+  let topSalary = 0;
+  let topWorker = null;
+
+  for (let [name, salary] of arr) {
+    if (topSalary < salary) {
+      topSalary = salary;
+      topWorker = name;
+    }
+  }
+
+  return topWorker;
+
 }
 
 let salaries = {
@@ -9,16 +30,4 @@ let salaries = {
   "Марія": 250
 };
 
-alert( sumSalaries(salaries) ); 
-
-// task2
-function count(obj) {
-  return Object.keys(obj).length;
-}
-
-let user = {
-  name: 'Іван',
-  age: 30
-};
-
-alert( count(user) );
+topSalary(salaries);
