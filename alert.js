@@ -1,33 +1,63 @@
 // task1
-let user = { name: "Іван", years: 30 };
+// let Jan20_2012 = new Date("2012-0-20T03:12");
+// alert(Jan20_2012);
 
-let {name, years: age, isAdmin = false} = user;
+// // task2
+// function getWeekDay(date) {
+//   let d = new Date(date);
+ 
+//   let days = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+//   let day = days[d.getDay()];
 
-alert( name ); // Іван
-alert( age ); // 30
-alert( isAdmin ); // false
+//   return day;
+// }
 
-// task2
-function topSalary(salaries) {
-  let arr = Object.entries(salaries);
-  let topSalary = 0;
-  let topWorker = null;
+// task3
+// function getLocalDay(date) {
+//   let d = new Date(date);
+ 
+//   let day = d.getDay();
 
-  for (let [name, salary] of arr) {
-    if (topSalary < salary) {
-      topSalary = salary;
-      topWorker = name;
-    }
-  }
+//   if (day === 0) day = 7;
 
-  return topWorker;
+//   return day;
+// }
+
+// task4
+function getDateAgo(date, days) {
+  let oldDate = new Date(date);
+  
+  oldDate.setDate(oldDate.getDate() - days);
+  
+  return oldDate.getDate();
+   
+}
+let date = new Date(2015, 0, 2);
+getDateAgo(date, 1);
+
+// task5
+function getLastDayOfMonth(year, month) {
+  let temporaryDate = new Date(year, month + 1, 0);
+  return temporaryDate.getDate();
+}
+
+// task6
+function getSecondsToday() {
+  let date = new Date();
+  let seconds = date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds();
+  return seconds; 
 
 }
 
-let salaries = {
-  "Іван": 100,
-  "Петро": 300,
-  "Марія": 250
-};
+// task7
+function getSecondsToTomorrow() {
+  let date = new Date();
+  let secondsLeft = (86400 - (date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds()));
+  return secondsLeft;
+  
+}
 
-topSalary(salaries);
+// task8
+function formatDate(date) {
+  
+}
