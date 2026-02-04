@@ -1,36 +1,22 @@
-// task1
-let user = {
-  name: "Іван Іванов",
-  age: 35
-};
+// task1.1
+// function sumTo(n) {
+//   let sum = 0;
+//   for (let i = 0; i <= n; i++){
+//     sum += i;
+//   } 
+//   return sum;
+// }
 
-let json = JSON.stringify(user);
-let obj = JSON.parse(json);
+// task1.2
+// function sumTo(n) {
+//   let sum = 0;
+//   if (n === 1) return 1;
+//   sum += n + sumTo(n-1);
+//   return sum;
+// }
 
-// task2
-let room = {
-  number: 23
-};
-
-let meetup = {
-  title: "Конференція",
-  occupiedBy: [{name: "Іван"}, {name: "Аліса"}],
-  place: room
-};
-
-// циклічне посилання
-room.occupiedBy = meetup;
-meetup.self = meetup;
-
-alert( JSON.stringify(meetup, function replacer(key, value) {
-  if (value === meetup) return undefined;
-  return value;
-}));
-
-/* результат повинен бути:
-{
-  "title":"Конференція",
-  "occupiedBy":[{"name":"Іван"},{"name":"Аліса"}],
-  "place":{"number":23}
+// task1.3
+function sumTo(n){
+  return n*(n+1)/2;
+  
 }
-*/
