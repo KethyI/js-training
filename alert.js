@@ -1,50 +1,54 @@
 // task1
-
-function sum(a) {
-
-  return function (b) {
-    return a+b;
-  }
-}
-
-// task 2.1
-function inBetween(a, b) {
-  return function(arg) {
-    return arg >= a && arg <= b;
-  }
-}
-
-// task2.2
-function inArray(arr){
-  return function(item) {
-    return arr.includes(item);
-  }
-}
-
-// task3
-function byField(fieldName) {
+function makeCounter(){
   
-  return function (a, b){
-    return a[fieldName] > b[fieldName] ? 1 : -1;
+  let count = 0;
+
+  function counter(){
+    return count++;
   }
-}
-
-//task4
-function makeArmy() {
-  let shooters = [];
- 
-
-  let i = 0;
-  while (i < 10) {
-    let j = i;
-    let shooter = function() { 
-      
-      alert( j ); 
+    
+    counter.set = function(num){
+      return count = num;
     };
-    shooters.push(shooter); 
-    i++;
+
+    counter.decrease = function(){
+      return count--;
+    };
+
+    return counter;
+  
+}
+
+let counter = makeCounter();
+  
+alert( counter() ); // 0
+alert( counter() ); // 1
+  
+counter.set(10); // set the new count
+  
+alert( counter() ); // 10
+  
+counter.decrease(); // decrease the count by 1
+  
+alert( counter() ); // 10 (instead of 11)
+
+// task2
+function sum(a){
+  let result = a;
+  function add (b) {
+    result += b;
+    return add;
   }
 
-  
-  return shooters;
+  add.toString = function(){
+   return result;
+  }
+
+  return add;
 }
+
+sum(1)(2) == 3; // 1 + 2
+sum(1)(2)(3) == 6; // 1 + 2 + 3
+sum(5)(-1)(2) == 6
+sum(6)(-1)(-2)(-3) == 0
+sum(0)(1)(2)(3)(4)(5) == 15
