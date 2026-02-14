@@ -1,54 +1,39 @@
-// task1
-function makeCounter(){
-  
-  let count = 0;
+// task1.1
+// function printNumbers(from, to) {
+//   let count = from;
 
-  function counter(){
-    return count++;
-  }
+//   function timer() {
+//     alert(count);
+//     count++;
+
+//     if (count <= to){      
+//       setTimeout(timer, 1000);
+//     }
+//   }
+
+//   setTimeout(timer, 1000);
+  
+// }
+
+// printNumbers(5, 10);
+
+// task1.2
+function printNumbers(from, to) {
+  let count = from;
+  
+  let timeOut = function timer(){
     
-    counter.set = function(num){
-      return count = num;
-    };
+    if (count <= to){   
+      alert(count);
+      count++;
+    }
 
-    counter.decrease = function(){
-      return count--;
-    };
-
-    return counter;
+    clearInterval(timeOut);
+  
+  }
+  
+  setInterval(timeOut, 1000);
   
 }
 
-let counter = makeCounter();
-  
-alert( counter() ); // 0
-alert( counter() ); // 1
-  
-counter.set(10); // set the new count
-  
-alert( counter() ); // 10
-  
-counter.decrease(); // decrease the count by 1
-  
-alert( counter() ); // 10 (instead of 11)
-
-// task2
-function sum(a){
-  let result = a;
-  function add (b) {
-    result += b;
-    return add;
-  }
-
-  add.toString = function(){
-   return result;
-  }
-
-  return add;
-}
-
-sum(1)(2) == 3; // 1 + 2
-sum(1)(2)(3) == 6; // 1 + 2 + 3
-sum(5)(-1)(2) == 6
-sum(6)(-1)(-2)(-3) == 0
-sum(0)(1)(2)(3)(4)(5) == 15
+printNumbers(5, 10);
