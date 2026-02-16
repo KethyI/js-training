@@ -1,39 +1,48 @@
-// task1.1
-// function printNumbers(from, to) {
-//   let count = from;
-
-//   function timer() {
-//     alert(count);
-//     count++;
-
-//     if (count <= to){      
-//       setTimeout(timer, 1000);
-//     }
+// task1
+// function spy(func){
+  
+//   function secondCall(...args){
+//     secondCall.calls.push(args);
+//     return func.call(this, ...args);
 //   }
 
-//   setTimeout(timer, 1000);
-  
+//   secondCall.calls = [];
+
+//   return secondCall;
+
 // }
 
-// printNumbers(5, 10);
+// function work(a, b) {
+//   alert( a + b ); 
+// }
 
-// task1.2
-function printNumbers(from, to) {
-  let count = from;
-  
-  let timeOut = function timer(){
+// work = spy(work);
+
+// work(1, 2);
+// work(4, 5); 
+
+// for (let args of work.calls) {
+//   alert( 'виклик:' + args.join() ); // "виклик:1,2", "виклик:4,5"
+// }
+
+// task2
+function delay(f, ms) {
+   
+  function alarm (...args){
     
-    if (count <= to){   
-      alert(count);
-      count++;
-    }
+    return setTimeout(() => f.call(this, ...args), ms); 
 
-    clearInterval(timeOut);
-  
-  }
-  
-  setInterval(timeOut, 1000);
-  
+  }   
+
+  return alarm;
 }
 
-printNumbers(5, 10);
+function f(x, y) {
+  alert("x: " + x + " , y: " + y);
+}
+
+let f1000 = delay(f, 1000);
+let f1500 = delay(f, 5000);
+
+f1000("1", "2");
+f1500("тест");
