@@ -37,12 +37,41 @@ function delay(f, ms) {
   return alarm;
 }
 
-function f(x, y) {
-  alert("x: " + x + " , y: " + y);
+// function f(x, y) {
+//   alert("x: " + x + " , y: " + y);
+// }
+
+// let f1000 = delay(f, 1000);
+// let f1500 = delay(f, 5000);
+
+// f1000("1", "2");
+// f1500("тест");
+
+// task3
+
+function debounce(f, ms) {
+
+  let delay = 0;
+  
+  function waiter() {
+    if (delay < ms) {
+      clearTimeout(timerID)
+      delay = ms;
+      return waiter();
+    }
+    return f.apply(this, arguments);
+  }  
+
+  let timerID = setTimeout(waiter, delay, ...arguments);
+
+  
+  
+  
+  return waiter(...arguments);
 }
 
-let f1000 = delay(f, 1000);
-let f1500 = delay(f, 5000);
+let f = debounce(alert, 1000);
 
-f1000("1", "2");
-f1500("тест");
+f("a");
+setTimeout( () => f("b"), 200);
+setTimeout( () => f("c"), 500);
