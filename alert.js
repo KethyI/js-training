@@ -49,29 +49,63 @@ function delay(f, ms) {
 
 // task3
 
-function debounce(f, ms) {
+// function debounce(f, ms) {
+//   let delay;
+//   return function() {
+//     clearTimeout(delay);
+//     delay = setTimeout(() => {
+//       f.apply(this, arguments);
+//     }, ms);
+//   }
+// }
 
-  let delay = 0;
+// let f = debounce(alert, 1000);
+
+// f("a");
+// setTimeout( () => f("b"), 200);
+// setTimeout( () => f("c"), 500);
+
+//task4
+function throttle(func, ms) {
+
+  let isThrottled = false,
+    savedArgs,
+    savedThis;
+    let count = 1;
   
-  function waiter() {
-    if (delay < ms) {
-      clearTimeout(timerID)
-      delay = ms;
-      return waiter();
+
+  function wrapper() {
+
+    if (isThrottled) { // (2)
+      savedArgs = arguments;
+      savedThis = this;
+      console.log(savedArgs, savedThis, count);
+      count++;
+      return;
     }
-    return f.apply(this, arguments);
-  }  
+    isThrottled = true;
 
-  let timerID = setTimeout(waiter, delay, ...arguments);
+    func.apply(this, arguments); // (1)
 
-  
-  
-  
-  return waiter(...arguments);
+    setTimeout(function() {
+      isThrottled = false; // (3)
+      if (savedArgs) {
+        wrapper.apply(savedThis, savedArgs);
+        savedArgs = savedThis = null;
+      }
+    }, ms);
+  }
+
+  return wrapper;
 }
 
-let f = debounce(alert, 1000);
+function f(a) {
+  console.log(a);
+}
 
-f("a");
-setTimeout( () => f("b"), 200);
-setTimeout( () => f("c"), 500);
+// f1000 передає виклики до f максимум один раз на 1000 мс
+let f1000 = throttle(f, 1000);
+
+f1000(1); // показує 1
+f1000(2); // (обмеження, 1000 мс ще не закінчилися)
+f1000(3); // (обмеження, 1000 мс ще не закінчилися)
